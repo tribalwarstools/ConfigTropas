@@ -1,5 +1,5 @@
 (function () {
-  UI.InfoMessage('Iniciando versão 1.0...');
+  UI.InfoMessage('Iniciando configuração de tropas...');
 
   const unidades = [
     ["spear", "Lanceiro"], ["sword", "Espadachim"],
@@ -197,11 +197,11 @@
     document.getElementById("btnPreview").onclick = mostrarPreview;
 
     document.getElementById("btnBuscarBarbara").onclick = () => {
-      $.getScript('https://tribalwarstools.github.io/teste/BuscarBBTeste.js');
+      $.getScript('https://tribalwarstools.github.io/final/BuscaBB.js');
     };
 
     document.getElementById("btnAtalho").onclick = () => {
-      $.getScript('https://tribalwarstools.github.io/teste/CriarAtalhoAtaqueTeste.js');
+      $.getScript('https://tribalwarstools.github.io/final/CriaAtalho.js');
     };
 
     carregarDados();
