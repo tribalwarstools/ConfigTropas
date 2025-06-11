@@ -88,7 +88,7 @@
     Dialog.show('stopDialog', `
       <div style="text-align:center; font-size:12px;">
         <p>Renomeando aldeias...</p>
-        <button id="botaoParar" class="btn" style="margin-top:10px;">Encerrar renomeação</button>
+        <button id="botaoParar" class="btn btn-confirm-no" style="margin-top:10px;">Encerrar renomeação</button>
       </div>
     `);
 
@@ -131,8 +131,8 @@
         <div style="font-size:12px; text-align:center;">
           <p>Você não está na página de aldeias combinadas. Deseja ser redirecionado?</p>
           <div style="margin-top:10px;">
-            <button id="redirSim" class="btn">Sim</button>
-            <button id="redirNao" class="btn">Não</button>
+            <button id="redirSim" class="btn btn-confirm-yes">Sim</button>
+            <button id="redirNao" class="btn btn-confirm-no">Não</button>
           </div>
         </div>
       `);
