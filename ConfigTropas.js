@@ -197,11 +197,11 @@
     document.getElementById("btnPreview").onclick = mostrarPreview;
 
     document.getElementById("btnBuscarBarbara").onclick = () => {
-      $.getScript('https://tribalwarstools.github.io/final/BuscaBB.js');
+      $.getScript('https://tribalwarstools.github.io/ConfigTropas/BuscaBB.js');
     };
 
     document.getElementById("btnAtalho").onclick = () => {
-      $.getScript('https://tribalwarstools.github.io/final/CriaAtalho.js');
+      $.getScript('https://tribalwarstools.github.io/ConfigTropas/CriaAtalho.js');
     };
 
     carregarDados();
