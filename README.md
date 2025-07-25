@@ -18,7 +18,7 @@ Este script fornece uma interface prática e completa para configurar tropas e c
 
 ## 📷 Captura de Tela
 
-> *(adicione aqui um printscreen do painel gerado se desejar)*
+![Painel de Configuração](./print_ConfigTropas.png)
 
 ## 🗂️ Estrutura do Painel
 
