@@ -1,6 +1,6 @@
 /*
  * Script Tribal Wars
- * Desenvolvedor: Giovani Guedes
+ * Desenvolvedor: GiovaniG
  * GitHub: https://github.com/seuusuario
  * Versão: 1.0.0
  * Data: 26/07/2025
