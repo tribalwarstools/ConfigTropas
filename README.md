@@ -1,4 +1,4 @@
-# 🛡️ ConfigTropas - Script para Configuração de Envio de Tropas no Tribal Wars
+# 🛡️ Configuração de Envio de Tropas no Tribal Wars
 
 Este script fornece uma interface prática e completa para configurar tropas e coordenadas no jogo **Tribal Wars**. Ele permite ao jogador salvar combinações de tropas, importar coordenadas por jogador ou tribo, visualizar um resumo da configuração e muito mais.
 
