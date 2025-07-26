@@ -1,3 +1,15 @@
+/*
+ * Script Tribal Wars
+ * Desenvolvedor: Giovani Guedes
+ * GitHub: https://github.com/seuusuario
+ * Versão: 1.0.0
+ * Data: 26/07/2025
+ * Descrição: Script para [descrição resumida do que faz o script].
+ * Compatível com Tribal Wars versão X.X
+ * 
+ * Uso livre para fins pessoais. Não remova esta assinatura ao redistribuir.
+ */
+
 javascript:
 (function() {
     // Ler do localStorage
