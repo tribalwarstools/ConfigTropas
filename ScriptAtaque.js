@@ -1,7 +1,7 @@
 /*
  * Script Tribal Wars
  * Desenvolvedor: GiovaniG
- * GitHub: https://github.com/seuusuario
+ * GitHub: https://github.com/tribalwarstools
  * Versão: 1.0.0
  * Data: 26/07/2025
  * Descrição: Script para [descrição resumida do que faz o script].
