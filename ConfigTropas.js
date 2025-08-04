@@ -1,14 +1,14 @@
-/*
- * Script Tribal Wars
- * Desenvolvedor: GiovaniG
- * GitHub: https://github.com/tribalwarstools
- * Versão: 1.0.0
- * Data: 26/07/2025
- * Descrição: Script para [descrição resumida do que faz o script].
- * Compatível com Tribal Wars versão X.X
- * 
- * Uso livre para fins pessoais. Não remova esta assinatura ao redistribuir.
- */
+// ==UserScript==
+// @name         Configurador de Tropas
+// @namespace    https://github.com/tribalwarstools/
+// @version      1.0
+// @description  Script para configurar tropas automaticamente no Tribal Wars
+// @author       Seu Nome ou Alias
+// @match        *://*.tribalwars.com.br/*
+// @grant        none
+// @updateURL    https://raw.githubusercontent.com/tribalwarstools/ConfigTropas/main/ConfigTropas.js
+// @downloadURL  https://raw.githubusercontent.com/tribalwarstools/ConfigTropas/main/ConfigTropas.js
+// ==/UserScript==
 
 (function () {
   UI.InfoMessage('Iniciando configuração de tropas...');
