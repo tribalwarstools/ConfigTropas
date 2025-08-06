@@ -1,15 +1,3 @@
-// ==UserScript==
-// @name         Configurador de Tropas
-// @namespace    https://github.com/tribalwarstools/
-// @version      1.0
-// @description  Script para configurar tropas automaticamente no Tribal Wars
-// @author       Seu Nome ou Alias
-// @match        *://*.tribalwars.com.br/*
-// @grant        none
-// @updateURL    https://raw.githubusercontent.com/tribalwarstools/ConfigTropas/main/ConfigTropas.js
-// @downloadURL  https://raw.githubusercontent.com/tribalwarstools/ConfigTropas/main/ConfigTropas.js
-// ==/UserScript==
-
 (function () {
   UI.InfoMessage('Iniciando configuração de tropas...');
 
