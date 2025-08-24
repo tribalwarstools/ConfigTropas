@@ -102,7 +102,7 @@
 
     function atualizarContador(qtd) {
         document.getElementById('contadorCoords').textContent =
-            qtd > 0 ? `Aldeias bárbaras encontradas: ${qtd} coordenadas` : "Nenhuma coordenada encontrada";
+            qtd > 0 ? `Encontradas: ${qtd} aldeias bárbaras` : "Nenhuma aldeias bárbaras encontrada";
     }
 
     document.getElementById('btnReset').addEventListener('click', () => {
