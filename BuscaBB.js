@@ -90,10 +90,6 @@
                 <button id="btnFechar" class="btn" style="font-size: 10px; padding: 2px 6px;">Fechar</button>
             </div>
 
-            <div style="margin-bottom: 6px;">
-                <strong>Bárbaras encontradas:</strong> <span id="contador">0</span>
-            </div>
-
             <div>
                 <strong>Coordenadas:</strong><br>
                 <textarea id="coordenadas" style="width: 95%; height: 60px; font-size: 10px;" readonly></textarea>
@@ -111,7 +107,6 @@
         document.getElementById('campoValor').value = 50;
         document.getElementById('minPontos').value = 26;
         document.getElementById('maxPontos').value = 12154;
-        document.getElementById('contador').textContent = '0';
         document.getElementById('coordenadas').value = '';
     });
 
@@ -138,8 +133,6 @@
         });
 
         const coords = resultado.map(([id, name, x, y]) => `${x}|${y}`);
-
-        document.getElementById('contador').textContent = coords.length;
         document.getElementById('coordenadas').value = coords.join(' ');
     });
 
