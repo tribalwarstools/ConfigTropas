@@ -20,7 +20,6 @@
 
     async function carregarMinhasAldeias() {
         if (!villages.length) villages = await carregarVillages();
-
         const meuId = game_data.player.id;
 
         const minhasAldeias = villages
@@ -30,14 +29,13 @@
                 const nomeB = b[1].toLowerCase();
                 if (nomeA < nomeB) return -1;
                 if (nomeA > nomeB) return 1;
-
                 const coordA = `${a[2].toString().padStart(3, '0')}|${a[3].toString().padStart(3, '0')}`;
                 const coordB = `${b[2].toString().padStart(3, '0')}|${b[3].toString().padStart(3, '0')}`;
                 return coordA.localeCompare(coordB);
             });
 
         const select = document.getElementById('coordAtual');
-        select.innerHTML = ''; // limpa opções anteriores
+        select.innerHTML = '';
 
         const defaultOption = document.createElement('option');
         defaultOption.value = '';
@@ -93,14 +91,19 @@
             <div>
                 <strong>Coordenadas:</strong><br>
                 <textarea id="coordenadas" style="width: 95%; height: 60px; font-size: 10px;" readonly></textarea>
+                <div id="contadorCoords" style="margin-top:3px; font-weight:bold; font-size:10px; color:#603000;"></div>
             </div>
         </div>
     `;
 
     Dialog.show("tw_barbaras_filter_ultracompact", html);
 
-    // Após abrir o diálogo, carrega as aldeias do jogador no select
     await carregarMinhasAldeias();
+
+    function atualizarContador(qtd) {
+        document.getElementById('contadorCoords').textContent =
+            qtd > 0 ? `Encontradas: ${qtd} coordenadas` : "Nenhuma coordenada encontrada";
+    }
 
     document.getElementById('btnReset').addEventListener('click', () => {
         document.getElementById('coordAtual').value = game_data.village.coord;
@@ -108,6 +111,7 @@
         document.getElementById('minPontos').value = 26;
         document.getElementById('maxPontos').value = 12154;
         document.getElementById('coordenadas').value = '';
+        atualizarContador(0);
     });
 
     document.getElementById('btnFiltro').addEventListener('click', async () => {
@@ -123,9 +127,9 @@
         const minPontos = parseInt(document.getElementById('minPontos').value);
         const maxPontos = parseInt(document.getElementById('maxPontos').value);
 
-        const barbaras = villages.filter(([id, name, x, y, player, points]) => {
-            return player === 0 && points >= minPontos && points <= maxPontos;
-        });
+        const barbaras = villages.filter(([id, name, x, y, player, points]) =>
+            player === 0 && points >= minPontos && points <= maxPontos
+        );
 
         const resultado = barbaras.filter(([id, name, x, y]) => {
             const coord = `${x}|${y}`;
@@ -134,6 +138,7 @@
 
         const coords = resultado.map(([id, name, x, y]) => `${x}|${y}`);
         document.getElementById('coordenadas').value = coords.join(' ');
+        atualizarContador(coords.length);
     });
 
     document.getElementById('btnCopiar').addEventListener('click', () => {
