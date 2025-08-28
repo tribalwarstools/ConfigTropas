@@ -1,5 +1,4 @@
 (function() {
-    // ======= CONFIGURAÇÕES =======
     const tropasSalvas = localStorage.getItem("tropasSalvas");
 
     var units = {
@@ -19,17 +18,14 @@
         }
     }
 
-    // ======= INICIALIZAÇÃO =======
     var win = window.frames.length > 0 ? window.main : window,
         data = win.game_data;
 
-    // Função para distância Euclidiana
     function calcularDistancia(a, b) {
         var dx = a.x - b.x, dy = a.y - b.y;
         return Math.sqrt(dx*dx + dy*dy);
     }
 
-    // Funções auxiliares
     var func = {
         insert: function(n, a) { win.$("[name=" + n + "]").val(a); },
         total: function(n) { return win.$("input[name=" + n + "]").next().text().match(/([0-9]+)/)[1]; },
@@ -47,7 +43,6 @@
         }
     };
 
-    // ======= LÓGICA DE ATAQUE =======
     if (data.screen == "place") {
         if (win.$("div[style*=red]").length > 0) {
             win.$("div[style*=red]").remove();
@@ -56,37 +51,47 @@
         }
 
         if (win.$("[name=support]").length > 0) {
-            // Preencher tropas
+            // Preenche tropas
             win.$.each(units, function(n, a) {
                 if (func.check(n)) a[1] ? func.insert(n, func.total(n)) : func.insert(n, a[0]);
             });
 
-            // ======= COORDENADAS =======
+            // Lê coordenadas salvas
             var coords = (localStorage.getItem("coordsSalvas") || "500|500").split(" ");
+
+            // Recupera coordenadas já atacadas do localStorage
+            var atacadasKey = "coordsAtacadas_" + data.world + "_" + data.village.id;
+            var atacadas = JSON.parse(localStorage.getItem(atacadasKey) || "[]");
+
+            // Filtra apenas coordenadas que ainda não foram atacadas
+            var coordsDisponiveis = coords.filter(c => !atacadas.includes(c));
+            if (coordsDisponiveis.length === 0) {
+                alert("Todas as coordenadas já foram atacadas desta aldeia!");
+                return;
+            }
+
+            // Aldeia atual
             var aldeiaAtual = { x: data.village.x, y: data.village.y };
 
-            // Ordena por proximidade da aldeia atual
-            var coordsObj = coords.map(c => {
+            // Ordena coordenadas disponíveis pela proximidade
+            var coordsObj = coordsDisponiveis.map(c => {
                 var partes = c.split("|");
                 return { x: parseInt(partes[0]), y: parseInt(partes[1]), coordString: c };
             });
             coordsObj.sort((a,b) => calcularDistancia(a, aldeiaAtual) - calcularDistancia(b, aldeiaAtual));
-            coords = coordsObj.map(c => c.coordString);
 
-            // Número do cookie para lembrar qual coordenada atacar
-            var nome = "FastFarm" + data.world;
-            var num = parseInt(win.$.cookie(nome)) || 0;
-            if (num >= coords.length) num = 0;
+            // Coordenada mais próxima
+            var coord = coordsObj[0].coordString.split("|");
 
-            // Inserir coordenada atual
-            var coord = coords[num].split("|");
+            // Marca como atacada
+            atacadas.push(coordsObj[0].coordString);
+            localStorage.setItem(atacadasKey, JSON.stringify(atacadas));
+
+            // Insere coordenadas
             func.insert("x", coord[0]);
             func.insert("y", coord[1]);
 
-            // Atualiza cookie para próxima coordenada
-            win.$.cookie(nome, num + 1, { expires: 10 });
-
-            // Clica em atacar
+            // Ataca
             win.$("[name=attack]").click();
         } else {
             func.redir("place");
