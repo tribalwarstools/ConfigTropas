@@ -76,6 +76,9 @@
     localStorage.removeItem("tropasSalvas");
     localStorage.removeItem("coordsSalvas");
     UI.SuccessMessage("Todos os campos foram limpos.");
+
+    // 🚀 Executa o ResetarCoord.js também
+    $.getScript('https://tribalwarstools.github.io/ConfigTropas/ResetarCoord.js');
   }
 
   function carregarDados() {
