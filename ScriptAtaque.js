@@ -67,6 +67,10 @@
             var coordsDisponiveis = coords.filter(c => !atacadas.includes(c));
             if (coordsDisponiveis.length === 0) {
                 alert("Todas as coordenadas já foram atacadas!");
+
+                // 🔽 CHAMADA DO SCRIPT DE RESET QUANDO LISTA TERMINA
+                $.getScript('https://tribalwarstools.github.io/ConfigTropas/ResetarCoord.js');
+
                 return;
             }
 
