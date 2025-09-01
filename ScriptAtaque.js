@@ -59,14 +59,14 @@
             // Lê coordenadas salvas
             var coords = (localStorage.getItem("coordsSalvas") || "500|500").split(" ");
 
-            // Recupera coordenadas já atacadas do localStorage
-            var atacadasKey = "coordsAtacadas_" + data.world + "_" + data.village.id;
+            // Recupera coordenadas já atacadas de forma GLOBAL (independente da aldeia)
+            var atacadasKey = "coordsAtacadas_" + data.world;
             var atacadas = JSON.parse(localStorage.getItem(atacadasKey) || "[]");
 
             // Filtra apenas coordenadas que ainda não foram atacadas
             var coordsDisponiveis = coords.filter(c => !atacadas.includes(c));
             if (coordsDisponiveis.length === 0) {
-                alert("Todas as coordenadas já foram atacadas desta aldeia!");
+                alert("Todas as coordenadas já foram atacadas!");
                 return;
             }
 
@@ -83,7 +83,7 @@
             // Coordenada mais próxima
             var coord = coordsObj[0].coordString.split("|");
 
-            // Marca como atacada
+            // Marca como atacada (global)
             atacadas.push(coordsObj[0].coordString);
             localStorage.setItem(atacadasKey, JSON.stringify(atacadas));
 
